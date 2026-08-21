@@ -48,12 +48,12 @@ def get_dict(file_name):
     This function returns the english to french dictionary given a file where the each column corresponds to a word.
     Check out the files this function takes in your workspace.
     """
-    my_file = pd.read_csv(file_name, delimiter=' ')
+    my_file = pd.read_csv(file_name, delimiter=' ', header=None)
     etof = {}  # the english to french dictionary to be returned
     for i in range(len(my_file)):
         # indexing into the rows.
-        en = my_file.loc[i][0]
-        fr = my_file.loc[i][1]
+        en = my_file.iloc[i, 0]
+        fr = my_file.iloc[i, 1]
         etof[en] = fr
 
     return etof
